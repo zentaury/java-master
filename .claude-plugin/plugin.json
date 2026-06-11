@@ -1,0 +1,8 @@
+{
+  "name": "java-master",
+  "description": "Java + Spring Boot senior engineer guide covering all LTS versions (Java 8, 11, 17, 21, 25) and Spring Boot 2.x, 3.x, 4.x",
+  "version": "1.0.0",
+  "author": {
+    "name": "zentaury"
+  }
+}
