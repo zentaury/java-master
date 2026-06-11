@@ -35,15 +35,29 @@ A Claude Code skill for writing idiomatic Java + Spring Boot code across all LTS
 
 ## Installation
 
-Add this skill to your Claude Code setup:
+### CLI (recomendado — Claude Code, Gemini CLI, GitHub Copilot, Cursor y más)
 
 ```bash
-git clone https://github.com/zentaury/java-master.git ~/.claude/skills/java-master
+npx skills add zentaury/java-master -g
+```
+
+Instala globalmente y enlaza automáticamente a todos los agentes compatibles.
+
+### Claude Desktop App
+
+1. Descarga el ZIP desde [Releases](https://github.com/zentaury/java-master/releases) o clona el repo y comprime la carpeta
+2. Abre Claude Desktop → **Settings → Extensions → Install from file**
+3. Selecciona el ZIP
+
+### Manual (git clone)
+
+```bash
+git clone https://github.com/zentaury/java-master.git ~/.agents/skills/java-master
 ```
 
 ## Usage
 
-The skill activates automatically when Claude Code detects a Java or Spring Boot task. You can also invoke it explicitly with `/java-master`.
+La skill se activa automáticamente cuando Claude detecta una tarea de Java o Spring Boot. También puedes invocarla explícitamente con `/java-master`.
 
 ## License
 
