@@ -8,13 +8,19 @@ A Claude Code skill for writing idiomatic Java + Spring Boot code across all LTS
 - **Spring Boot:** 2.x, 3.x, and 4.x — including migration paths between versions
 - **Layered architecture** — package structure, naming conventions, dependency rules
 - **DTOs** — Records (Java 17+) and immutable classes (Java 8/11)
+- **Exception hierarchy** — `BusinessException`, `ResourceNotFoundException`, `ConflictException`, `BusinessRuleException` and `@RestControllerAdvice` integration
 - **Domain modeling** — Sealed interfaces, pattern matching switch, pattern matching instanceof
 - **Concurrency** — Virtual threads (Java 21+), Scoped Values (Java 25), ThreadLocal, CompletableFuture
-- **HTTP clients** — RestClient, @ImportHttpServices (SB4), @HttpServiceProxyFactory (SB3), RestTemplate (SB2)
+- **HTTP clients** — RestClient, @ImportHttpServices (SB4), @HttpServiceProxyFactory (SB3), RestTemplate (SB2), FeignClient (optional, SB 2.x/3.x)
 - **Persistence** — Spring Data JPA, projections, @Transactional, N+1 avoidance
+- **Pagination** — Pageable, Page\<T\>, PageRequest, PageResponse\<T\> record
+- **Mapper** — MapStruct for entity ↔ DTO conversion with field mapping and custom logic
 - **Validation** — Bean Validation, custom constraints, global error handling
+- **DB Migrations (optional)** — Flyway (SQL versioned) and Liquibase (YAML changelogs), with comparison table
 - **Testing** — @WebMvcTest, @DataJpaTest, @ExtendWith(MockitoExtension), Testcontainers
 - **Security** — Spring Security stateless JWT, SecurityFilterChain, WebSecurityConfigurerAdapter (SB2)
+
+> **Herramientas opcionales:** Al iniciar un proyecto nuevo, el skill pregunta si usarás Flyway, Liquibase, o FeignClient antes de generar código.
 
 ## Version compatibility matrix
 
@@ -25,12 +31,15 @@ A Claude Code skill for writing idiomatic Java + Spring Boot code across all LTS
 | Pattern matching switch | ❌ | ❌ | ❌ | ✅ | ✅ |
 | Virtual threads | ❌ | ❌ | ❌ | ✅ | ✅ |
 | Scoped Values | ❌ | ❌ | ❌ | Preview | ✅ |
+| MapStruct | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 | Feature | SB 2.x | SB 3.x | SB 4.x |
 |---|---|---|---|
 | RestTemplate | ✅ | deprecated | ❌ |
 | RestClient | ❌ | ✅ (3.2+) | ✅ |
 | @ImportHttpServices | ❌ | ❌ | ✅ |
+| FeignClient (optional) | ✅ | ✅ | ❌ |
+| Flyway / Liquibase | ✅ | ✅ | ✅ |
 | Jackson 3 | ❌ | ❌ | ✅ |
 
 ## Installation
